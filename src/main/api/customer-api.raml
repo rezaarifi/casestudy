@@ -37,7 +37,11 @@ traits:
           partial,
           pageable,
           cacheable          
-        ]        
+        ]
+  post:
+      is:
+        [secured]  
+
   /{customerId}:
     type: 
       collection-item:
@@ -49,15 +53,13 @@ traits:
           partial,
           cacheable         
         ]
-  post:
-    is:
-      [secured]
-  put:
-    is:
-      [secured]
-  delete:
-    is:
-      [secured]    
+    put:
+      is:
+        [secured]
+
+    delete:
+      is:
+        [secured]    
                  
       
             
