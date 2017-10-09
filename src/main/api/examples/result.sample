@@ -1,6 +1,6 @@
- { 
+{ 
   "status": 400,
-  "message": "result occured :(",             
+  "message": "Bad Request. Customer already exist",             
   "code": 1234,
   "moreInfo" : "https://www.deloitte.com/docs/api/errors/1234"             
 }
