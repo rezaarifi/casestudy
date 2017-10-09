@@ -1,5 +1,5 @@
 # Customer API Case Study
-This is a case study to showcase API design. This includes a basic CRUD operation for customer in basic usecases . It follows [API design first](https://dzone.com/articles/an-api-first-development-approach-1) approach for development. RAML is used for design of RESTful api. The primary focus in this stage is in API design and testing the api with basic stub implementation with the help of APIkit. Further implementation can be performed in next stage. The API can be accessed [here](/src/main/api).    
+This is a case study to showcase API design. This includes a basic CRUD operation for customer in basic usecases. It follows [API design first](https://dzone.com/articles/an-api-first-development-approach-1) approach for development. RAML is used for design of RESTful API. The primary focus in this stage is in API design and testing the API with basic stub implementation with the help of APIkit. Further implementation can be performed in next stage. The API can be accessed [here](/src/main/api).    
 
 ## Commentary on usecase 1
 **Assumptions:** It is assumed that a client may consumes the customer API each 5 minutes in order to have a copy of customers in its own database.  Depending on other constraints any of the following design considerations can be taken in to account.
@@ -19,7 +19,7 @@ The client sends the following header with the same Etag in next requests:
 If-None-Match
 ETag:  "asnasdsdd"
 ```
-The server checks the Etag and responds with 304 status code if not modified and  200 with new represntation if modified.  new Etag is also returned to the client for subsequent requests if modified. 
+The server checks the Etag and responds with 304 status code if not modified and  200 with new representation if modified.  new Etag is also returned to the client for subsequent requests if modified. 
 More information on this can be found [here](https://dennis-xlc.gitbooks.io/restful-java-with-jax-rs-2-0-2rd-edition/en/part1/chapter11/caching.html)
 
 **NOTE:** This caching is considered in api design with Cacheable Trait.
@@ -38,9 +38,9 @@ An extension to this scenario could be considering other ways of synchronization
 **Assumptions:** The key considerations is mobile and efficient network use  
 **Considerations:**
 1. To design this a new resource called customerId is defined to access the resource directly with more ease. 
-2. Partial trait is defined so that the client be able to requests the necessary fields in response. This yields to network effeciency although customer object is small itself. 
+2. Partial trait is defined so that the client be able to requests the necessary fields in response. This yields to network efficiency although customer object is small itself. 
 3. Cacheable trait as discussed in usecase 1 is defined to avoid unnecessary data transfer over the network when a customer is not modified in GET request.
-4. Pageable trait is defined to support paging for effecient customers call over the network.
+4. Pageable trait is defined to support paging for efficient customers call over the network.
 
 ### Commentary on usecase 3
 **Assumptions:** Simple extension of the API to support future resources such as orders and products
@@ -75,9 +75,9 @@ By doing the above steps, adding products and orders could be as simple as the f
 ```
 **Note:** If any requirements differs from the base design, it can be implemented by overwriting any of the map's elements as RAML supports this kind of inheritance. 
 
-## Design decistions and considerations
+## Design decisions and considerations
 #### Security
-* Simple authentications by providing an access token for write methods is implemented. To enhance security, **Ouath2** standard is recommended. 
+* Simple authentications by providing an access token for write methods is implemented. To enhance security, **OAuth 2.0** standard is recommended. 
 * Transport protocol is limited to Https to ensure message confidentiality and integrity
 * Other security concerns such as access control, rate of usage can be considered later if required.
 
@@ -101,10 +101,9 @@ By doing the above steps, adding products and orders could be as simple as the f
 * For exceptional scenarios where the clients do not support http codes other than 200 such as some Adobe flash clients, an optional parameter called suppress_response_codes is considered in Suppressable trait. When suppress_response_codes is set to true, the HTTP response is always 200 and detailed information is supported by verbose message such as the one described in Error handling section.
 
 ### Implementation Considerations
-Basic stub implementation is provided with help of APIkit and Anypoint Studio. For further implementation the following can be considered.
-* Caching can be implemented by builtin caching provided in Mule enterprise edition or other caching such as EHcache can be implemented with open source Mule
+Basic stub implementation is provided with help of APIkit and Anypoint Studio. For further implementation the following can be considered:  
+* Caching can be implemented by built-in caching provided in Mule enterprise edition or other caching such as EHcache can be implemented with open source Mule
 * Proper exception handling should be used in Mule to support the detailed error codes described in Error handling section. 
-* JAX-RS can be used for RESTful api implementation
 * Proper Validation and logging should be considered.
 * Mule Spring security can be used for security.  
 * Programming to interfaces such as CustomerService with help of Spring and Mule Spring support should be considered.
