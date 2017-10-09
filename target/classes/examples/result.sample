@@ -1,6 +1,0 @@
- { 
-  "status": 400,
-  "message": "result occured :(",             
-  "code": 1234,
-  "moreInfo" : "https://www.deloitte.com/docs/api/errors/1234"             
-}

@@ -5,3 +5,15 @@ src/main/api/exchange.json
 src/main/java/Test.txt
 target
 .gitattributes
+.classpath
+.gitattributes
+.project
+.settings/org.eclipse.jdt.core.prefs
+target/classes/customer-api.raml
+target/classes/customer-api.xml
+target/classes/examples/customer-new.sample
+target/classes/examples/customer-retrieve.sample
+target/classes/examples/customers.sample
+target/classes/examples/result.sample
+target/classes/log4j2.xml
+target/classes/mule-app.properties
