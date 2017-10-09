@@ -1,0 +1,7 @@
+.classpath
+.project
+.settings/org.eclipse.jdt.core.prefs
+src/main/api/exchange.json
+src/main/java/Test.txt
+target
+.gitattributes
