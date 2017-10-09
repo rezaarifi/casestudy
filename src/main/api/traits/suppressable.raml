@@ -1,0 +1,8 @@
+#%RAML 1.0 Trait
+usage: Use this trait if the client handle standard HTTP behaviour. For example, sometimes clients intercept HTTP error codes, or support limited HTTP methods such as some versions of Adobe Flash clients   
+queryParameters: 
+  suppressResultCode:
+    description: |
+      if set to true, the HTTP response is always 200. The returning result will be verbose containing the original http status code and more information
+    type: boolean
+    required: false

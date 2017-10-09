@@ -1,0 +1,85 @@
+#%RAML 1.0
+title: customer api 
+version: v1
+protocols: HTTPS
+baseUri: http://www.deloitte.com/api/{version}
+mediaType: application/json
+
+types:
+  customer: !include schemas/customer.schema
+  result: !include schemas/result.schema
+  
+resourceTypes: 
+  collection: !include resourceTypes/collection.raml
+  collection-item: !include resourceTypes/collection-item.raml           
+                     
+traits: 
+  partial: !include traits/partial.raml
+  secured: !include traits/secured.raml
+  cacheable: !include traits/cacheable.raml
+  sortable: !include traits/sortable.raml
+  searchable: !include traits/searchable.raml
+  pageable: !include traits/pageable.raml
+  suppressable: !include traits/suppressable.raml
+    
+/customers:
+  type: 
+    collection:
+      exampleCollection: !include examples/customers.sample
+      exampleItem: !include examples/customer-new.sample
+      exampleCreated: !include examples/customer-retrieve.sample
+      exampleResult: !include examples/result.sample
+  get:
+    is:
+        [
+          searchable: {description : "the criteria for search which could be lastName and firstName" , example : "[lastName,Arifi,equal]"},
+          sortable: {fields: lastName2 },
+          partial,
+          pageable,
+          cacheable          
+        ]        
+  /{customerId}:
+    type: 
+      collection-item:
+        exampleItem: !include examples/customer-retrieve.sample
+        exampleResult: !include examples/result.sample
+    get:
+      is:
+        [
+          partial,
+          cacheable         
+        ]
+  post:
+    is:
+      [secured]
+  put:
+    is:
+      [secured]
+  delete:
+    is:
+      [secured]    
+                 
+      
+            
+          
+    
+    
+      
+
+    
+      
+      
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+

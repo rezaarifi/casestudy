@@ -1,0 +1,20 @@
+[ 
+  { 
+    "customerId": 2120,
+    "firstName": "Reza",
+    "lastName": "Arifi",
+    "address": "2 Abadan Parade, Sydney NSW 2170"     
+  },
+  { 
+    "customerId": 2121,
+    "firstName": "Zohreh",
+    "lastName": "Rahimi",
+    "address": "2 Abadan Parade, Sydney NSW 2100"
+  },
+  {
+    "customerId": 22,
+    "firstName": "Jack",
+    "lastName": "Johnson",
+    "address": "456 Kent Street, Sydney NSW 2000"
+  }
+]

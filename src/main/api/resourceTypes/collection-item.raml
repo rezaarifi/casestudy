@@ -1,0 +1,110 @@
+#%RAML 1.0 ResourceType
+
+get:
+  description: |
+    Get the <<resourcePathName|!singularize>>
+    with <<resourcePathName|!singularize>>Id =
+    {<<resourcePathName|!singularize>>Id}
+  responses:
+    200:
+      body:
+        application/json:
+          example: |
+            <<exampleItem>>  
+    304:
+      body:
+        application/json:
+          example:
+            {
+              "message": "<<resourcePathName|!singularize>> has not been modified"
+            }        
+    401:
+      body:
+        application/json:
+          example: |
+            {
+              "message": "The supplied credentials, if any, are not sufficient to access the resource."
+            }         
+    404:
+      body:
+        application/json:
+          example: |                
+            {
+              "message": "<<resourcePathName|!singularize>> not found"
+            }
+    500:
+      body:
+        application/json:
+          example: |
+            {
+              "message": "Internal server error occured"
+            }
+delete:
+  description: deleting a <<resourcePathName|!singularize>>
+        with <<resourcePathName|!singularize>>Id
+     
+  responses: 
+    204:
+      body:
+        appapplication/json:
+          example: |
+            {
+              message: "<<resourcePathName|!singularize>> deleted successfully"
+            }
+    401:
+      body:
+        application/json:
+          example: |
+            {
+              "message": "The supplied credentials, if any, are not sufficient to access the resource."
+            }      
+    404:
+      body:
+        application/json:
+          example: |                
+            {
+              "message": "<<resourcePathName|!singularize>> not found"
+            }
+    500:
+       body:
+          application/json:
+            example: |
+               {
+                 "message": "Internal server error occured"
+               }                
+put:
+  description: updating a <<resourcePathName|!singularize>>
+        with <<resourcePathName|!singularize>>Id
+  body: 
+    application/json:
+       # type: <<resourcePathName|!singularize>> 
+      example: |
+        <<exampleItem>>         
+  responses:
+    200:
+      body: 
+        application/json:
+          example: |
+            {
+              message: "<<resourcePathName|!singularize>> successfully updated"
+            }
+    400:
+      body:
+        application/json:
+          # type: result TBD commented
+            example: |
+              <<exampleResult>>                                          
+    404:
+      body:
+        application/json:
+          example: |                
+            {
+              "message": "<<resourcePathName|!singularize>> not found"
+            }
+    500:
+      body:
+        application/json:
+          example: |
+            {
+              "message": "Internal server error occured"
+            }        
