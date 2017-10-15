@@ -38,7 +38,7 @@ An extension to this scenario could be considering other ways of synchronization
 **Assumptions:** The key considerations is mobile and efficient network use  
 **Considerations:**
 1. To design this a new Resource called customerId is defined to access the resource directly with more ease. 
-2. Partial trait is defined so that the client be able to requests the necessary fields in response. This yields to network efficiency although customer object is small itself. 
+2. Partial trait is defined so that the client be able to requests the necessary fields in response. This yields more network efficiency although customer object is small itself. 
 3. Cacheable trait as discussed in usecase 1 is defined to avoid unnecessary data transfer over the network when a customer is not modified in GET request.
 4. Pageable trait is defined to support paging for efficient customers call over the network.
 
